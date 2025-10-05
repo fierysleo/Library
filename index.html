@@ -21,7 +21,8 @@
     function addBookToLibrary() {
         const title = document.getElementById("book_name").value;
         const author = document.getElementById("book_author").value;
-        const book = new Book(title, author);
+        const id = crypto.randomUUID();
+        const book = new Book(title, author ,id);
         myLibrary.push(book);
         console.log(myLibrary);
     
@@ -31,7 +32,9 @@
         titleCell.textContent = book.title;
         const authorCell = document.createElement("td");
         authorCell.textContent = book.author;
-        row.append(titleCell, authorCell);
+        const idCell = document.createElement("td");
+        idCell.textContent = book.id;
+        row.append(titleCell, authorCell ,idCell);
         table.appendChild(row);
     }
     </script>
@@ -46,6 +49,7 @@
             <tr>
                 <th>Title</th>
                 <th>Author</th>
+                <th>ID</th>
         </tr>
              <tr>
                 
@@ -59,6 +63,7 @@
         }
         table, td, th {
         border: 1px solid black;
+        width: 30%;
         }
         div {
             display: flex;
