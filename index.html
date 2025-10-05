@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myLibrary = [];
+
+    function Book(title, author,id) {
+        this.title = title;
+        this.author = author;
+        this.id = crypto.randomUUID()
+
+  };
+        // the constructor...
+    
+
+    function addBookToLibrary() {
+        const title = document.getElementById("book_name").value;
+        const author = document.getElementById("book_author").value;
+        const book = new Book(title, author);
+        myLibrary.push(book);
+        console.log(myLibrary);
+    
+        const table = document.querySelector("#container table");
+        const row = document.createElement("tr");
+        const titleCell = document.createElement("td");
+        titleCell.textContent = book.title;
+        const authorCell = document.createElement("td");
+        authorCell.textContent = book.author;
+        row.append(titleCell, authorCell);
+        table.appendChild(row);
+    }
+    </script>
+    
+    <input type="" id="book_name" name="" placeholder="book tittle" required style="margin:10px;"> <br>
+    <input type="" id="book_author" name="" placeholder="book author" required style="margin:10px;"> <br>
+    <br>
+    <button onclick="addBookToLibrary()">Add Book</button>
+    
+    <div class="listOfBooks" id="container">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+        </tr>
+             <tr>
+                
+            </tr>
+</table>
+    </div>
+    <style>
+        *{
+            text-align: center;
+            
+        }
+        table, td, th {
+        border: 1px solid black;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+    </style>
+    
+</body>
+</html>
